@@ -1,4 +1,3 @@
-import { AxiosError } from 'axios';
 import React, { useState } from 'react';
 import {api} from '../../../services/api';
 
@@ -23,7 +22,7 @@ const TriangleBox: React.FC<ITriangleBoxProps> = ({  }) => {
             });
 
             toast('Triangulo criado com sucesso ! Clique em calcular area total')
-        } catch(error: AxiosError | any){
+        } catch(error: any){
             if(error?.response?.data?.a){
                 error?.response?.data?.a.forEach((error: string) => {
                     toast(error);

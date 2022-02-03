@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import {api} from '../../../services/api';
 import { BoxContainer, ButtonContainer } from '../RectangleBox/styles';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { AxiosError } from 'axios';
 
 const RectangleBox: React.FC = ({ }) => {
     const [baseRectangle, setBaseRectangle] = useState<null|number>(null);
@@ -17,7 +16,7 @@ const RectangleBox: React.FC = ({ }) => {
             });
 
             toast('Retângulo criado com sucesso ! Clique em calcular area total');
-        } catch(error: AxiosError | any){
+        } catch(error: any){
             if(error?.response?.data?.altura){
                 
                 error?.response?.data?.altura.forEach((error: string) => {
